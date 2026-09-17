@@ -1,0 +1,14 @@
+EDUTRACK — AI-ASSISTED STUDENT PORTAL
+
+End Semester Examination (ESE) Project
+
+Domain: Education
+Application Type: Student Portal
+Technology: HTML, CSS, JavaScript
+AI Usage: Planning, UI design, code generation, testing and improvement
+
+Student Name: T. Abhay
+Roll No.: __________________________
+Course/Branch: _____________________
+Faculty: ___________________________
+Academic Year: 2026

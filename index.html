@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduTrack - Student Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="brand-icon">E</div><div><strong>EduTrack</strong><span>Student Portal</span></div></div>
+    <nav>
+      <button class="nav-item active" data-page="dashboard">🏠 <span>Dashboard</span></button>
+      <button class="nav-item" data-page="courses">📚 <span>Courses</span></button>
+      <button class="nav-item" data-page="attendance">📊 <span>Attendance</span></button>
+      <button class="nav-item" data-page="assignments">📝 <span>Assignments</span></button>
+      <button class="nav-item" data-page="timetable">🗓️ <span>Timetable</span></button>
+      <button class="nav-item" data-page="notices">📢 <span>Notices</span></button>
+      <button class="nav-item" data-page="profile">👤 <span>Profile</span></button>
+    </nav>
+    <div class="side-footer">AI-Assisted ESE Prototype<br><small>HTML • CSS • JavaScript</small></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="menu" id="menuBtn">☰</button>
+      <div class="search"><span>⌕</span><input id="globalSearch" placeholder="Search portal..." /></div>
+      <div class="top-actions"><button id="themeBtn" title="Toggle theme">◐</button><div class="avatar">SV</div></div>
+    </header>
+
+    <section class="content">
+      <div id="toast" class="toast"></div>
+
+      <section id="dashboard" class="page active-page">
+        <div class="hero">
+          <div><p class="eyebrow">Thursday, 17 September 2026</p><h1>Good afternoon, T. Abhay 👋</h1><p>Here is your academic overview for today.</p></div>
+          <div class="hero-badge">B.Tech • CSE-AI&ML</div>
+        </div>
+        <div class="stats">
+          <div class="stat"><span>📚</span><div><b>6</b><small>Active Courses</small></div></div>
+          <div class="stat"><span>📈</span><div><b>86%</b><small>Overall Attendance</small></div></div>
+          <div class="stat"><span>📝</span><div><b id="pendingCount">3</b><small>Pending Tasks</small></div></div>
+          <div class="stat"><span>🏆</span><div><b>8.4</b><small>Current CGPA</small></div></div>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-head"><div><h2>Today’s Classes</h2><p>17 September</p></div><button class="text-btn" data-go="timetable">View timetable →</button></div>
+            <div class="class-row"><div class="time">09:00<br><small>10:00</small></div><div class="class-icon blue">CN</div><div><b>Computer Networks</b><span>Room A-204 • Dr. Mehta</span></div><em>Upcoming</em></div>
+            <div class="class-row"><div class="time">11:00<br><small>12:00</small></div><div class="class-icon purple">ML</div><div><b>Machine Learning</b><span>Lab L-12 • Prof. Shah</span></div><em>Upcoming</em></div>
+            <div class="class-row"><div class="time">14:00<br><small>15:00</small></div><div class="class-icon green">DB</div><div><b>Database Systems</b><span>Room B-110 • Prof. Rao</span></div><em>Upcoming</em></div>
+          </div>
+          <div class="card">
+            <div class="card-head"><div><h2>Upcoming Deadlines</h2><p>Stay on track</p></div><button class="text-btn" data-go="assignments">View all →</button></div>
+            <div class="deadline"><span class="dot red"></span><div><b>CN Assignment 2</b><small>Due 19 Sep • 2 days left</small></div><strong>40%</strong></div>
+            <div class="deadline"><span class="dot orange"></span><div><b>ML Mini Project</b><small>Due 22 Sep • 5 days left</small></div><strong>65%</strong></div>
+            <div class="deadline"><span class="dot green"></span><div><b>DBMS Quiz</b><small>Due 25 Sep • 8 days left</small></div><strong>10%</strong></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head"><div><h2>Latest Notices</h2><p>Important university updates</p></div><button class="text-btn" data-go="notices">See notices →</button></div>
+          <div class="notice-mini"><span>📢</span><div><b>Mid-Semester Examination Schedule Released</b><small>Examinations begin from 28 September. Check the detailed timetable.</small></div><time>Today</time></div>
+          <div class="notice-mini"><span>💻</span><div><b>Hackathon Registration Open</b><small>Students can register their teams through the student activity portal.</small></div><time>Yesterday</time></div>
+        </div>
+      </section>
+
+      <section id="courses" class="page">
+        <div class="section-title"><div><h1>My Courses</h1><p>Current semester subjects and progress</p></div><select id="courseFilter"><option>All Courses</option><option>AI & Data Science</option><option>Core</option></select></div>
+        <div class="course-grid">
+          <div class="course-card" data-cat="Core"><div class="course-top blue-bg">CN <span>Core</span></div><h3>Computer Networks</h3><p>Dr. Mehta • 4 Credits</p><div class="progress"><i style="width:88%"></i></div><small>Attendance 88%</small></div>
+          <div class="course-card" data-cat="AI & Data Science"><div class="course-top purple-bg">ML <span>AI & DS</span></div><h3>Machine Learning</h3><p>Prof. Shah • 4 Credits</p><div class="progress"><i style="width:84%"></i></div><small>Attendance 84%</small></div>
+          <div class="course-card" data-cat="Core"><div class="course-top green-bg">DB <span>Core</span></div><h3>Database Systems</h3><p>Prof. Rao • 4 Credits</p><div class="progress"><i style="width:91%"></i></div><small>Attendance 91%</small></div>
+          <div class="course-card" data-cat="Core"><div class="course-top orange-bg">JP <span>Core</span></div><h3>Java Programming</h3><p>Dr. Patel • 3 Credits</p><div class="progress"><i style="width:79%"></i></div><small>Attendance 79%</small></div>
+          <div class="course-card" data-cat="AI & Data Science"><div class="course-top pink-bg">DS <span>AI & DS</span></div><h3>Data Structures</h3><p>Prof. Kumar • 4 Credits</p><div class="progress"><i style="width:87%"></i></div><small>Attendance 87%</small></div>
+          <div class="course-card" data-cat="AI & Data Science"><div class="course-top teal-bg">DM <span>AI & DS</span></div><h3>Discrete Mathematics</h3><p>Dr. Iyer • 3 Credits</p><div class="progress"><i style="width:86%"></i></div><small>Attendance 86%</small></div>
+        </div>
+      </section>
+
+      <section id="attendance" class="page">
+        <div class="section-title"><div><h1>Attendance</h1><p>Track your subject-wise attendance</p></div></div>
+        <div class="attendance-summary"><div class="big-ring">86%<small>Overall</small></div><div><h2>Attendance Status</h2><p>You are above the minimum required attendance of 75%.</p><div class="legend"><span>● Safe</span><span>● Monitor</span></div></div></div>
+        <div class="card table-card"><table><thead><tr><th>Subject</th><th>Present</th><th>Total</th><th>Attendance</th><th>Status</th></tr></thead><tbody>
+        <tr><td>Computer Networks</td><td>22</td><td>25</td><td><div class="bar"><i style="width:88%"></i></div>88%</td><td><span class="pill safe">Safe</span></td></tr>
+        <tr><td>Machine Learning</td><td>21</td><td>25</td><td><div class="bar"><i style="width:84%"></i></div>84%</td><td><span class="pill safe">Safe</span></td></tr>
+        <tr><td>Database Systems</td><td>20</td><td>22</td><td><div class="bar"><i style="width:91%"></i></div>91%</td><td><span class="pill safe">Safe</span></td></tr>
+        <tr><td>Java Programming</td><td>19</td><td>24</td><td><div class="bar"><i style="width:79%"></i></div>79%</td><td><span class="pill watch">Monitor</span></td></tr>
+        <tr><td>Data Structures</td><td>20</td><td>23</td><td><div class="bar"><i style="width:87%"></i></div>87%</td><td><span class="pill safe">Safe</span></td></tr>
+        </tbody></table></div>
+      </section>
+
+      <section id="assignments" class="page">
+        <div class="section-title"><div><h1>Assignments</h1><p>Manage your academic tasks</p></div><button class="primary" id="addAssignment">＋ Add Assignment</button></div>
+        <div class="filters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="pending">Pending</button><button class="filter" data-filter="submitted">Submitted</button></div>
+        <div class="assignment-list" id="assignmentList">
+          <div class="assignment" data-status="pending"><div class="assign-icon red-bg">CN</div><div class="assign-main"><b>Computer Networks – Assignment 2</b><span>Routing Algorithms • Due 19 Sep 2026</span><div class="assign-progress"><i style="width:40%"></i></div></div><span class="pill pending">Pending</span><button class="small-btn submit-btn">Submit</button></div>
+          <div class="assignment" data-status="pending"><div class="assign-icon purple-bg">ML</div><div class="assign-main"><b>Machine Learning – Mini Project</b><span>Classification Model • Due 22 Sep 2026</span><div class="assign-progress"><i style="width:65%"></i></div></div><span class="pill pending">Pending</span><button class="small-btn submit-btn">Submit</button></div>
+          <div class="assignment" data-status="submitted"><div class="assign-icon green-bg">DB</div><div class="assign-main"><b>DBMS – SQL Practice</b><span>Queries and Normalization • Submitted 15 Sep</span><div class="assign-progress"><i style="width:100%"></i></div></div><span class="pill submitted">Submitted</span><button class="small-btn disabled">Done</button></div>
+        </div>
+      </section>
+
+      <section id="timetable" class="page">
+        <div class="section-title"><div><h1>Timetable</h1><p>Weekly class schedule</p></div><select><option>Week of 14 Sep</option></select></div>
+        <div class="schedule">
+          <div class="day"><h3>MON <small>14</small></h3><div class="slot blue-slot"><b>CN</b><span>09:00–10:00<br>Room A-204</span></div><div class="slot purple-slot"><b>ML</b><span>11:00–12:00<br>Lab L-12</span></div></div>
+          <div class="day"><h3>TUE <small>15</small></h3><div class="slot green-slot"><b>DB</b><span>10:00–11:00<br>Room B-110</span></div><div class="slot orange-slot"><b>JP</b><span>14:00–15:00<br>Room A-108</span></div></div>
+          <div class="day"><h3>WED <small>16</small></h3><div class="slot pink-slot"><b>DS</b><span>09:00–10:00<br>Room C-205</span></div><div class="slot teal-slot"><b>DM</b><span>12:00–13:00<br>Room B-202</span></div></div>
+          <div class="day today"><h3>THU <small>17</small></h3><div class="slot blue-slot"><b>CN</b><span>09:00–10:00<br>Room A-204</span></div><div class="slot purple-slot"><b>ML</b><span>11:00–12:00<br>Lab L-12</span></div><div class="slot green-slot"><b>DB</b><span>14:00–15:00<br>Room B-110</span></div></div>
+          <div class="day"><h3>FRI <small>18</small></h3><div class="slot orange-slot"><b>JP</b><span>10:00–11:00<br>Room A-108</span></div><div class="slot pink-slot"><b>DS</b><span>13:00–14:00<br>Room C-205</span></div></div>
+        </div>
+      </section>
+
+      <section id="notices" class="page">
+        <div class="section-title"><div><h1>Notices</h1><p>University announcements and updates</p></div><div class="search small"><span>⌕</span><input id="noticeSearch" placeholder="Search notices..."></div></div>
+        <div class="notice-list" id="noticeList">
+          <article class="notice-card"><div class="notice-date">17<br><small>SEP</small></div><div><span class="tag exam">Examination</span><h3>Mid-Semester Examination Schedule Released</h3><p>Students are advised to check the examination schedule and report to the examination hall 15 minutes before the scheduled time.</p><small>Academic Office • Today</small></div></article>
+          <article class="notice-card"><div class="notice-date">16<br><small>SEP</small></div><div><span class="tag event">Activity</span><h3>Hackathon Registration Open</h3><p>Student teams can register for the upcoming innovation challenge through the activity portal.</p><small>Student Affairs • Yesterday</small></div></article>
+          <article class="notice-card"><div class="notice-date">12<br><small>SEP</small></div><div><span class="tag general">General</span><h3>Library Working Hours Extended</h3><p>The central library will remain open until 9:00 PM on weekdays during examination preparation.</p><small>Library • 5 days ago</small></div></article>
+        </div>
+      </section>
+
+      <section id="profile" class="page">
+        <div class="section-title"><div><h1>My Profile</h1><p>Student information</p></div><button class="primary" id="editProfile">Edit Profile</button></div>
+        <div class="profile-card"><div class="profile-avatar">SV</div><div><h2 id="profileName">T. Abhay</h2><p>Student ID: MU2026CSE0000</p><p>B.Tech CSE-AI&ML</p><p>Semester 4 • Section A</p></div></div>
+        <div class="card details"><h2>Academic Details</h2><div class="detail-grid"><div><small>Email</small><b>student@example.com</b></div><div><small>Phone</small><b>+91 90000 00000</b></div><div><small>Department</small><b>Computer Science</b></div><div><small>Current CGPA</small><b>8.4 / 10</b></div></div></div>
+      </section>
+    </section>
+  </main>
+</div>
+<div class="modal" id="modal"><div class="modal-box"><button class="close" id="closeModal">×</button><h2 id="modalTitle">Add Assignment</h2><label>Assignment Name<input id="newAssignName" placeholder="e.g. Java Assignment 3"></label><label>Due Date<input id="newAssignDate" type="date"></label><button class="primary full" id="saveAssignment">Save Assignment</button></div></div>
+<script src="script.js"></script>
+</body>
+</html>
